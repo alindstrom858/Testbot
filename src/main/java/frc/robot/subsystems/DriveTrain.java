@@ -12,8 +12,8 @@ import frc.robot.Constants;
 
 public class DriveTrain extends SubsystemBase {
   private SparkMax leftMotor1 = new SparkMax(Constants.LMOTOR1ID, MotorType.kBrushed);
-  private SparkMax leftMotor2 = new SparkMax(Constants.LMOTOR2ID, MotorType.kBrushed);'
-  '
+  private SparkMax leftMotor2 = new SparkMax(Constants.LMOTOR2ID, MotorType.kBrushed); 
+  
   private SparkMax rightMotor1 = new SparkMax(Constants.RMOTOR1ID, MotorType.kBrushed);
   private SparkMax rightMotor2 = new SparkMax(Constants.RMOTOR2ID, MotorType.kBrushed);
 

@@ -26,6 +26,12 @@ public class Robot extends TimedRobot {
    * This function is ran when the robot is first started up and should be used for any
    * initialization code.
    */
+  public void robotInit() {
+    m_oi = new OI();
+
+    driveTrain.setDefaultCommand(new TankDrive());
+  }
+
   public Robot() {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
@@ -82,7 +88,8 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    CommandScheduler.getInstance().schedule(new TankDrive());
+    //CommandScheduler.getInstance().schedule(new TankDrive());
+    CommandScheduler.getInstance().run();
   }
 
   @Override
