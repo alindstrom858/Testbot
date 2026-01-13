@@ -4,6 +4,10 @@
 
 package frc.robot;
 
+import edu.wpi.first.math.geometry.Pose3d;
+import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.networktables.StructArrayPublisher;
+import edu.wpi.first.networktables.StructPublisher;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -19,6 +23,13 @@ public class Robot extends TimedRobot {
   public static DriveTrain driveTrain = new DriveTrain();
   public static OI m_oi;
 
+  private Pose3d poseA = new Pose3d();
+  private Pose3d poseB = new Pose3d();
+
+  private StructPublisher<Pose3d> publisher;
+  private StructArrayPublisher<Pose3d> arrayPublisher;
+
+
   private Command m_autonomousCommand;
 
   
@@ -30,6 +41,13 @@ public class Robot extends TimedRobot {
     m_oi = new OI();
 
     driveTrain.setDefaultCommand(new TankDrive());
+
+    publisher = NetworkTableInstance.getDefault()
+        .getStructTopic("MyPose", Pose3d.struct).publish();
+
+    arrayPublisher = NetworkTableInstance.getDefault()
+        .getStructArrayTopic("MyPoseArray", Pose3d.struct).publish();
+
   }
 
   public Robot() {
@@ -51,6 +69,9 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
+
+    publisher.set(poseA);
+    arrayPublisher.set(new Pose3d[] { poseA, poseB });
   }
 
   /** This function is called once each time the robot enters Disabled mode. */
