@@ -23,6 +23,9 @@ public final class Constants {
   public static final int RMOTOR2ID = 15;
 
   public static final int X_BOX_1 = 0;
+  //public static final int LEFT_STICK_Y = 0;
+  //public static final int RIGHT_STICK_Y = 5;
   public static final int LEFT_STICK_Y = 1;
-  public static final int RIGHT_STICK_Y = 5;
+  public static final int LEFT_STICK_X = 0;
+  //public static final int RIGHT_STICK_Y = 0;
 }
