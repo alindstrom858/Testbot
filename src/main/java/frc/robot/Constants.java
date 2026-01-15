@@ -17,10 +17,10 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
   }
 
-  public static final int LMOTOR1ID = 0;
+  //public static final int LMOTOR1ID = 0;
   public static final int LMOTOR2ID = 1;
   public static final int RMOTOR1ID = 14;
-  public static final int RMOTOR2ID = 15;
+  //public static final int RMOTOR2ID = 15;
 
   public static final int X_BOX_1 = 0;
   //public static final int LEFT_STICK_Y = 0;
